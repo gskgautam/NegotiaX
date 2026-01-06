@@ -33,29 +33,52 @@ The following instruction-tuned large language models can be downloaded from Hug
 - **DeepSeek-7B**  
   [Download from Hugging Face](https://huggingface.co/deepseek-ai/deepseek-llm-7b-base)
 
-
-
 ## Module Usage
 
-- **`data_processing/`**  
-  Handles dataset loading and preprocessing to ensure consistency across experiments.
+- **`Exp/`**  
+  Contains experimental scripts used to reproduce the main results, ablations, and analyses reported in the paper.
 
-- **`evaluation/`**  
-  Provides evaluation scripts (`evaluate.py`) for computing alignment scores, baselines, and comparisons.
+  - `Ablation.py`  
+    Runs ablation studies for NegotiaX, isolating the effects of Module I (1-to-N objective separation) and Module II (Mechanistic Alignment Circuit).
 
-- **`models/`**  
-  Implements model architectures:
-  - `multi_agent.py`: Encodes multiple-agent coordination for alignment tasks.  
-  - `prefselect.py`: PrefSelect mechanism for query-aware policy selection.  
-  - `trialignx.py`: Core TriAlignX implementation.  
+Some experimental scripts (e.g., parts of `Ablation.py`) are **not shared in full** in this repository.
 
-- **`training/`**  
-  Training pipeline split into stages:  
-  - `stage1_finetuning.py`: Axis-wise low-rank fine-tuning.  
-  - `stage2_trialignx.py`: Multi-agent steering and final decoding.
+  - `Computational_Analysis.py`  
+    Computes inference-time latency and peak GPU memory usage across base models, 1-to-N variants, and full NegotiaX.
 
-- **`utils.py`**  
-  General utility functions shared across modules.
+  - `Mech_Interp.py`  
+    Performs mechanistic interpretability analysis to study attention heads, objective-specific pathways, catastrophic forgetting, and mechanistic blind-spots.
+
+  - `Train_MAC.py`  
+    Training script for the Mechanistic Alignment Circuit (MAC), enabling learned negotiation across alignment objectives.
+
+  - `test_base_model.py`  
+    Evaluates standard 1-to-1 transformer baselines without NegotiaX for comparison.
+
+---
+
+- **`src/`**  
+  Core implementation of the NegotiaX architecture and training pipeline.
+
+  - `Dataset_Response_Generate.py`  
+    Generates model responses for evaluation datasets (Alpaca, BeaverTails, TruthfulQA).
+
+  - `HHH_Trainer.py`  
+    Implements the training loop for objective-specific supervision and joint Helpful–Harmless–Honest (HHH) alignment.
+
+  - `Load_Preprocess_Dataset.py`  
+    Loads and preprocesses datasets corresponding to Helpfulness, Harmlessness, and Honesty objectives.
+
+  - `MAC.py`  
+    Implements the **Mechanistic Alignment Circuit (Module II)**, including objective-specific subspace projection and negotiative fusion.
+
+  - `Modeling_MAC.py`  
+    Defines the **NegotiaX 1-to-N transformer architecture**, integrating Module I (objective-specific representational pathways) and Module II (MAC).
+
+### Logs
+
+- **Logs.**  
+  We only release log files that do **not contain any author-identifying information**. 
 
 
 ### 📈 Evaluation
@@ -70,6 +93,9 @@ After applying any of the MoCaE methods, use `Evaluate.py` to assess the perform
 
 These evaluators are used to provide automated and/or human-aligned judgment of the calibrated outputs in terms of helpfulness, harmlessness, and honesty.
 
+**Evaluation Protocol.**  
+  Our evaluation strictly follows the standardized implementation used in prior multi-objective alignment work. In particular, we adopt the evaluation pipeline from the H³Fusion repository:
+  https://github.com/sftekin/h3fusion/tree/main/evaluator
 
-
+ 
 
