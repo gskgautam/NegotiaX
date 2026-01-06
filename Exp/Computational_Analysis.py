@@ -31,10 +31,7 @@ def measure_throughput(model, tokenizer, input_text, num_runs=3):
 
 def main():
     print("Analyzing Base Model...")
-    # device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    # dtype = torch.float16 if torch.cuda.is_available() else torch.float32
     
-    # Use QLoRA for base model to match MAC and fit in memory
     bnb_config = BitsAndBytesConfig(
         load_in_4bit=True,
         bnb_4bit_quant_type="nf4",
@@ -61,10 +58,7 @@ def main():
     
     print("\nAnalyzing MAC Model...")
     mac_model = HHHMistral(config.BASE_MODEL_NAME, mac_layers=config.MAC_LAYERS, mac_head_dim=config.MAC_HEAD_DIM)
-    # mac_model.to(device)
-    # Cast to half only if cuda
-    # if torch.cuda.is_available():
-    #     mac_model.half() 
+  
     
     mac_params = count_parameters(mac_model)
     print(f"MAC Model Params: {mac_params / 1e9:.2f} B")
@@ -73,8 +67,6 @@ def main():
     throughput_mac = measure_throughput(mac_model, tokenizer, "Hello, how are you?")
     print(f"MAC Inference Throughput: {throughput_mac:.2f} tok/s")
     
-    # VRAM usage is hard to get exactly from python without nvidia-smi, 
-    # but we can estimate or just leave blank for the user to fill.
     
     print("\nTable 2 – Computational overhead")
     print("| Model        | Params (B) | ΔParams | Train Time/Epoch | Inference tok/s | VRAM (GB) |")
@@ -84,3 +76,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
