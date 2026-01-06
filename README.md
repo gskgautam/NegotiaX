@@ -77,7 +77,6 @@ Some experimental scripts (e.g., parts of `Ablation.py`) are **not shared in ful
 
 ### Logs
 
-- **Logs.**  
   We only release log files that do **not contain any author-identifying information**. 
 
 
@@ -91,11 +90,8 @@ After applying any of the MoCaE methods, use `Evaluate.py` to assess the perform
 - beaver-dam-7b — available here: [PKU-Alignment/beaver-dam-7b](https://huggingface.co/PKU-Alignment/beaver-dam-7b)
 - GPT-Judge (via OpenAI API) 
 
-These evaluators are used to provide automated and/or human-aligned judgment of the calibrated outputs in terms of helpfulness, harmlessness, and honesty.
-
-**Evaluation Protocol.**  
-  Our evaluation strictly follows the standardized implementation used in prior multi-objective alignment work. In particular, we adopt the evaluation pipeline from the H³Fusion repository:
-  https://github.com/sftekin/h3fusion/tree/main/evaluator
+These evaluators are used to provide automated and/or human-aligned judgment of the calibrated outputs in terms of helpfulness, harmlessness, and honesty. In particular, we adopt the evaluation pipeline from the H³Fusion repository: https://github.com/sftekin/h3fusion/tree/main/evaluator
 
  
+
 
