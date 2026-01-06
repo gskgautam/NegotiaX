@@ -35,11 +35,7 @@ class HHHMistral(nn.Module):
         
         if bnb_config:
             self.model = prepare_model_for_kbit_training(self.model)
-            # If using LoRA, we should apply it here if we want to train the base model adapters too.
-            # But the prompt says "jointly train MAC together with the base model (or with base partially frozen)".
-            # QLoRA freezes the base model and trains adapters.
-            # We also need to train MAC parameters.
-            # MAC parameters are new, so they will be float32 (or compute dtype).
+    
             
         self.config = self.model.config
         self.mac_layers = mac_layers
@@ -60,13 +56,6 @@ class HHHMistral(nn.Module):
                 mac = MechanisticAlignmentCircuit(self.config.hidden_size, head_dim=mac_head_dim, mode=mac_mode)
                 self.mac_modules[str(layer_idx)] = mac
                 
-                # Register hook on self_attn
-                # MistralDecoderLayer structure: self_attn -> residual -> mlp
-                # We want to inject AFTER self_attn, before MLP.
-                # Hooking self_attn output allows us to modify the stream before it's added to residual.
-                # Wait, Mistral adds self_attn output to residual.
-                # If we modify self_attn output, we modify what's added.
-                # This is equivalent to adding MAC output to residual.
                 
                 layer = self.model.model.layers[layer_idx]
                 layer.self_attn.register_forward_hook(self._get_mac_hook(mac))
@@ -96,9 +85,6 @@ class HHHMistral(nn.Module):
                 hidden_states = output
                 rest = ()
             
-            # Run MAC
-            # mac_module is on same device as hidden_states usually, but let's ensure
-            # especially with QLoRA / device_map="auto"
             
             if mac_module.axis_embeddings.device != hidden_states.device:
                 mac_module.to(hidden_states.device)
@@ -125,3 +111,4 @@ class HHHMistral(nn.Module):
     @property
     def device(self):
         return self.model.device
+
