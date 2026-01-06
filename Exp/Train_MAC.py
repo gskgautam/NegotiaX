@@ -38,15 +38,6 @@ def main():
     print("Initializing Model...")
     model = HHHMistral(config.BASE_MODEL_NAME, mac_layers=config.MAC_LAYERS, mac_head_dim=config.MAC_HEAD_DIM)
     
-    # Optional: Apply LoRA if configured (omitted for simplicity, but recommended for 7B)
-    # If using LoRA, we would wrap the model with PEFT here.
-    # Given the prompt says "jointly train MAC together with the base model (or with base partially frozen)",
-    # LoRA is a good way to "partially freeze".
-    # For now, we'll train full model or assume user handles LoRA if needed.
-    # But to be safe with VRAM, let's freeze the base model and only train MAC + maybe LoRA?
-    # The prompt says "Gradients flow through MAC... Q/K/V... W_help... specialize".
-    # It doesn't strictly require LoRA, but it's practical.
-    # I'll stick to full finetune logic but note that it might be heavy.
     
     print("Starting Training...")
     trainer = HHHTrainer(model, train_loaders)
@@ -60,3 +51,4 @@ if __name__ == "__main__":
     except Exception:
         import traceback
         traceback.print_exc()
+
