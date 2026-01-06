@@ -1,0 +1,30 @@
+2025-12-07 20:11:44.990036: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Loading Model...
+Loading model in 4-bit mode (QLoRA)...
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:02<00:04,  2.20s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:04<00:02,  2.06s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:05<00:00,  1.88s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:05<00:00,  1.94s/it]
+/home/gskgautam/HHH_code/experiments/05_mech_interp.py:383: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(checkpoint_path, map_location='cpu')
+Injected MAC at layer 15 via hook.
+Loading checkpoint from /home/gskgautam/HHH_code/outputs/checkpoint_epoch_3/hhh_model.pt...
+Model loaded successfully.
+Generating Comparative Trajectory Plots (Base vs MAC)...
+Extracting MAC states...
+Extracting Base states (simulated by disabling MAC)...
+Trajectory plot saved.
+Generating MAC Head Heatmap...
+Heatmap saved.
+Running Causal Interventions (Figure 3)...
+  Condition: Full MAC
+  Condition: No Help Head
+    Zeroing proj_help (Mean before: -0.0000)
+    (Mean after: 0.0000)
+  Condition: No Harm Head
+    Zeroing proj_harm (Mean before: -0.0000)
+    (Mean after: 0.0000)
+  Condition: No Honest Head
+    Zeroing proj_honest (Mean before: -0.0000)
+    (Mean after: 0.0000)
+Intervention table saved.
+Generating Geometry Plot (Figure 4)...
+Geometry plot saved.

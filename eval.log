@@ -1,0 +1,187 @@
+2025-12-07 00:21:56.057396: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Loading Model...
+Loading model in 4-bit mode (QLoRA)...
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:02<00:04,  2.20s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:04<00:02,  2.07s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:05<00:00,  1.88s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:05<00:00,  1.94s/it]
+/home/gskgautam/HHH_code/experiments/02_eval_quantitative.py:29: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(checkpoint_path, map_location='cpu')
+Injected MAC at layer 15 via hook.
+Loading checkpoint from /home/gskgautam/HHH_code/outputs/checkpoint_epoch_3/hhh_model.pt...
+Loaded checkpoint. Missing keys: 0, Unexpected keys: 672
+Confirmed: All MAC module weights loaded successfully.
+Generating Alpaca Responses...
+Generating Alpaca:   0%|          | 0/50 [00:00<?, ?it/s]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:   2%|▏         | 1/50 [00:10<08:35, 10.51s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:   4%|▍         | 2/50 [00:27<11:38, 14.55s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:   6%|▌         | 3/50 [00:40<10:35, 13.53s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:   8%|▊         | 4/50 [00:43<07:11,  9.37s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  10%|█         | 5/50 [01:01<09:22, 12.49s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  12%|█▏        | 6/50 [01:03<06:36,  9.01s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  14%|█▍        | 7/50 [01:12<06:22,  8.89s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  16%|█▌        | 8/50 [01:15<05:02,  7.21s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  18%|█▊        | 9/50 [01:17<03:42,  5.43s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  20%|██        | 10/50 [01:34<06:04,  9.11s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  22%|██▏       | 11/50 [01:36<04:35,  7.05s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  24%|██▍       | 12/50 [01:46<04:53,  7.72s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  26%|██▌       | 13/50 [02:02<06:18, 10.23s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  28%|██▊       | 14/50 [02:07<05:14,  8.75s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  30%|███       | 15/50 [02:11<04:14,  7.26s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  32%|███▏      | 16/50 [02:15<03:36,  6.37s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  34%|███▍      | 17/50 [02:20<03:16,  5.97s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  36%|███▌      | 18/50 [02:27<03:20,  6.28s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  38%|███▊      | 19/50 [02:30<02:38,  5.10s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  40%|████      | 20/50 [02:36<02:48,  5.63s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  42%|████▏     | 21/50 [02:39<02:13,  4.60s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  44%|████▍     | 22/50 [02:42<01:59,  4.29s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  46%|████▌     | 23/50 [02:43<01:30,  3.35s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  48%|████▊     | 24/50 [03:01<03:16,  7.56s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  50%|█████     | 25/50 [03:02<02:19,  5.59s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  52%|█████▏    | 26/50 [03:09<02:25,  6.07s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  54%|█████▍    | 27/50 [03:10<01:46,  4.62s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  56%|█████▌    | 28/50 [03:16<01:50,  5.04s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  58%|█████▊    | 29/50 [03:23<01:56,  5.53s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  60%|██████    | 30/50 [03:27<01:43,  5.18s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  62%|██████▏   | 31/50 [03:45<02:47,  8.84s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  64%|██████▍   | 32/50 [04:02<03:25, 11.39s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  66%|██████▌   | 33/50 [04:08<02:44,  9.67s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  68%|██████▊   | 34/50 [04:11<02:06,  7.93s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  70%|███████   | 35/50 [04:12<01:27,  5.84s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  72%|███████▏  | 36/50 [04:15<01:10,  5.01s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  74%|███████▍  | 37/50 [04:23<01:14,  5.76s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  76%|███████▌  | 38/50 [04:26<00:59,  4.99s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  78%|███████▊  | 39/50 [04:39<01:20,  7.32s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  80%|████████  | 40/50 [04:41<00:57,  5.71s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  82%|████████▏ | 41/50 [04:42<00:38,  4.27s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  84%|████████▍ | 42/50 [04:46<00:33,  4.24s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  86%|████████▌ | 43/50 [04:52<00:33,  4.73s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  88%|████████▊ | 44/50 [04:54<00:23,  3.95s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  90%|█████████ | 45/50 [05:11<00:39,  7.98s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  92%|█████████▏| 46/50 [05:12<00:23,  5.79s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  94%|█████████▍| 47/50 [05:16<00:15,  5.20s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  96%|█████████▌| 48/50 [05:33<00:17,  8.86s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca:  98%|█████████▊| 49/50 [05:34<00:06,  6.53s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating Alpaca: 100%|██████████| 50/50 [05:38<00:00,  5.64s/it]Generating Alpaca: 100%|██████████| 50/50 [05:38<00:00,  6.77s/it]
+Generating BeaverTails Responses...
+Generating BeaverTails:   0%|          | 0/50 [00:00<?, ?it/s]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:   2%|▏         | 1/50 [00:04<03:39,  4.48s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:   4%|▍         | 2/50 [00:05<02:09,  2.70s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:   6%|▌         | 3/50 [00:07<01:48,  2.31s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:   8%|▊         | 4/50 [00:08<01:17,  1.68s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  10%|█         | 5/50 [00:11<01:29,  1.99s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  12%|█▏        | 6/50 [00:13<01:27,  1.99s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  14%|█▍        | 7/50 [00:16<01:42,  2.39s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  16%|█▌        | 8/50 [00:17<01:30,  2.16s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  18%|█▊        | 9/50 [00:18<01:14,  1.81s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  20%|██        | 10/50 [00:36<04:24,  6.62s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  22%|██▏       | 11/50 [00:37<03:17,  5.08s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  24%|██▍       | 12/50 [00:48<04:11,  6.61s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  26%|██▌       | 13/50 [00:48<02:56,  4.78s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  28%|██▊       | 14/50 [00:48<02:01,  3.38s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  30%|███       | 15/50 [00:49<01:27,  2.49s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  32%|███▏      | 16/50 [00:50<01:08,  2.02s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  34%|███▍      | 17/50 [00:56<01:47,  3.26s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  36%|███▌      | 18/50 [00:57<01:29,  2.80s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  38%|███▊      | 19/50 [00:59<01:16,  2.45s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  40%|████      | 20/50 [01:00<00:58,  1.95s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  42%|████▏     | 21/50 [01:01<00:45,  1.57s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  44%|████▍     | 22/50 [01:02<00:46,  1.66s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  46%|████▌     | 23/50 [01:07<01:10,  2.61s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  48%|████▊     | 24/50 [01:10<01:07,  2.61s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  50%|█████     | 25/50 [01:27<02:56,  7.05s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  52%|█████▏    | 26/50 [01:45<04:03, 10.15s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  54%|█████▍    | 27/50 [01:45<02:47,  7.29s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  56%|█████▌    | 28/50 [02:01<03:36,  9.83s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  58%|█████▊    | 29/50 [02:05<02:52,  8.19s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  60%|██████    | 30/50 [02:13<02:38,  7.94s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  62%|██████▏   | 31/50 [02:18<02:16,  7.19s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  64%|██████▍   | 32/50 [02:19<01:37,  5.43s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  66%|██████▌   | 33/50 [02:23<01:20,  4.76s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  68%|██████▊   | 34/50 [02:24<01:00,  3.77s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  70%|███████   | 35/50 [02:26<00:46,  3.07s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  72%|███████▏  | 36/50 [02:28<00:39,  2.85s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  74%|███████▍  | 37/50 [02:29<00:31,  2.43s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  76%|███████▌  | 38/50 [02:47<01:22,  6.91s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  78%|███████▊  | 39/50 [02:54<01:17,  7.08s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  80%|████████  | 40/50 [03:10<01:36,  9.68s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  82%|████████▏ | 41/50 [03:14<01:11,  7.96s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  84%|████████▍ | 42/50 [03:18<00:53,  6.68s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  86%|████████▌ | 43/50 [03:20<00:38,  5.47s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  88%|████████▊ | 44/50 [03:23<00:28,  4.73s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  90%|█████████ | 45/50 [03:30<00:26,  5.30s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  92%|█████████▏| 46/50 [03:34<00:20,  5.04s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  94%|█████████▍| 47/50 [03:35<00:11,  3.82s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  96%|█████████▌| 48/50 [03:50<00:14,  7.03s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails:  98%|█████████▊| 49/50 [03:59<00:07,  7.82s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating BeaverTails: 100%|██████████| 50/50 [04:00<00:00,  5.71s/it]Generating BeaverTails: 100%|██████████| 50/50 [04:00<00:00,  4.82s/it]
+Generating TruthfulQA Responses...
+Generating TruthfulQA:   0%|          | 0/50 [00:00<?, ?it/s]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:   2%|▏         | 1/50 [00:00<00:11,  4.30it/s]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:   4%|▍         | 2/50 [00:02<00:54,  1.14s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:   6%|▌         | 3/50 [00:19<06:51,  8.75s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:   8%|▊         | 4/50 [00:20<04:19,  5.63s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  10%|█         | 5/50 [00:21<02:51,  3.81s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  12%|█▏        | 6/50 [00:23<02:21,  3.21s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  14%|█▍        | 7/50 [00:23<01:38,  2.30s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  16%|█▌        | 8/50 [00:24<01:10,  1.68s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  18%|█▊        | 9/50 [00:24<00:55,  1.35s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  20%|██        | 10/50 [00:26<00:54,  1.35s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  22%|██▏       | 11/50 [00:26<00:46,  1.20s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  24%|██▍       | 12/50 [00:29<00:56,  1.48s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  26%|██▌       | 13/50 [00:30<00:52,  1.41s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  28%|██▊       | 14/50 [00:31<00:46,  1.29s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  30%|███       | 15/50 [00:32<00:42,  1.22s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  32%|███▏      | 16/50 [00:33<00:37,  1.09s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  34%|███▍      | 17/50 [00:36<00:57,  1.75s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  36%|███▌      | 18/50 [00:37<00:46,  1.46s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  38%|███▊      | 19/50 [00:37<00:38,  1.26s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  40%|████      | 20/50 [00:38<00:29,  1.03it/s]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  42%|████▏     | 21/50 [00:42<00:53,  1.83s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  44%|████▍     | 22/50 [00:42<00:40,  1.45s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  46%|████▌     | 23/50 [00:43<00:36,  1.34s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  48%|████▊     | 24/50 [00:44<00:28,  1.11s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  50%|█████     | 25/50 [00:47<00:39,  1.58s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  52%|█████▏    | 26/50 [00:50<00:53,  2.24s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  54%|█████▍    | 27/50 [00:51<00:38,  1.68s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  56%|█████▌    | 28/50 [00:53<00:38,  1.74s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  58%|█████▊    | 29/50 [00:58<00:58,  2.77s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  60%|██████    | 30/50 [00:58<00:40,  2.01s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  62%|██████▏   | 31/50 [00:59<00:31,  1.64s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  64%|██████▍   | 32/50 [00:59<00:21,  1.22s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  66%|██████▌   | 33/50 [01:02<00:31,  1.86s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  68%|██████▊   | 34/50 [01:04<00:27,  1.73s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  70%|███████   | 35/50 [01:04<00:21,  1.40s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  72%|███████▏  | 36/50 [01:06<00:19,  1.41s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  74%|███████▍  | 37/50 [01:06<00:15,  1.20s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  76%|███████▌  | 38/50 [01:07<00:12,  1.01s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  78%|███████▊  | 39/50 [01:09<00:12,  1.14s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  80%|████████  | 40/50 [01:09<00:10,  1.03s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  82%|████████▏ | 41/50 [01:10<00:08,  1.09it/s]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  84%|████████▍ | 42/50 [01:10<00:05,  1.41it/s]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  86%|████████▌ | 43/50 [01:12<00:07,  1.07s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  88%|████████▊ | 44/50 [01:14<00:08,  1.38s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  90%|█████████ | 45/50 [01:18<00:10,  2.07s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  92%|█████████▏| 46/50 [01:19<00:06,  1.65s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  94%|█████████▍| 47/50 [01:20<00:04,  1.47s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  96%|█████████▌| 48/50 [01:20<00:02,  1.22s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA:  98%|█████████▊| 49/50 [01:21<00:01,  1.09s/it]Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Generating TruthfulQA: 100%|██████████| 50/50 [01:21<00:00,  1.14it/s]Generating TruthfulQA: 100%|██████████| 50/50 [01:21<00:00,  1.64s/it]
+
+Generation Complete.
+==================================================
+INSTRUCTIONS FOR METRIC CALCULATION
+==================================================
+1. Helpfulness (WR): Run GPT-Judge on 'outputs/alpaca_results.json'.
+2. Harmlessness (SS): Run BeaverDam-7B on 'outputs/beaver_results.csv'.
+3. Honesty (TI): Run GPT-Judge on 'outputs/truthful_results.csv'.
+
+Once metrics are obtained, fill in Table 1 below:
+
+Table 1 – Alignment metrics for our model (MAC)
+| Model        | WR ↑ | SS ↓ | TI ↑ | Avg ↑ |
+|--------------|------|------|------|-------|
+| MAC (Ours)   |      |      |      |       |
+| RAHF (SOTA)* |      |      |      |       |
+| Aligner*     |      |      |      |       |
+| MARL-Focal*  |      |      |      |       |
+| TrinityX*    |      |      |      |       |
+| H3Fusion*    |      |      |      |       |

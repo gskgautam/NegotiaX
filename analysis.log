@@ -1,0 +1,36 @@
+2025-12-07 00:33:52.856506: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Analyzing Base Model...
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:02<00:04,  2.21s/it]
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:04<00:02,  2.07s/it]
+Loading checkpoint shards: 100%|██████████| 3/3 [00:05<00:00,  1.90s/it]
+Loading checkpoint shards: 100%|██████████| 3/3 [00:05<00:00,  1.96s/it]
+Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Base Model Params: 3.75 B
+Base Inference Throughput: 17.54 tok/s
+
+Analyzing MAC Model...
+Loading model in 4-bit mode (QLoRA)...
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:01<00:03,  1.82s/it]
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:03<00:01,  1.84s/it]
+Loading checkpoint shards: 100%|██████████| 3/3 [00:05<00:00,  1.77s/it]
+Loading checkpoint shards: 100%|██████████| 3/3 [00:05<00:00,  1.79s/it]
+Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:2 for open-end generation.
+Injected MAC at layer 15 via hook.
+MAC Model Params: 3.80 B
+Delta Params: 51929088
+MAC Inference Throughput: 14.54 tok/s
+
+Table 2 – Computational overhead
+| Model        | Params (B) | ΔParams | Epochs | Train Time/Epoch | Inference tok/s | VRAM (Train) |
+|--------------|-----------:|--------:|:------:|------------------|-----------------|--------------|
+| Base Model   | 3.75       | 0       | N/A    | N/A              | 17.54           | ~15 GB*      |
+| MAC (Ours)   | 3.80       | +52M    | 3      |~40 mins per epoch| 14.54           | ~16 GB       |
