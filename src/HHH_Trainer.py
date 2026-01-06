@@ -20,11 +20,6 @@ class HHHTrainer:
     def train(self):
         optimizer = AdamW(self.model.parameters(), lr=config.LEARNING_RATE)
         
-        # Calculate total steps
-        # We assume all loaders have roughly same length or we cycle.
-        # Let's define an epoch as one pass through the largest dataset? 
-        # Or just min length?
-        # For simplicity, let's zip them.
         
         min_len = min([len(l) for l in self.train_loaders.values()])
         total_steps = min_len * config.NUM_EPOCHS
@@ -90,4 +85,5 @@ class HHHTrainer:
         
         outputs = self.model(input_ids=input_ids, attention_mask=attention_mask, labels=labels)
         return outputs.loss
+
 
